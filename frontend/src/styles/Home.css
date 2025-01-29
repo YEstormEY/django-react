@@ -1,68 +1,195 @@
-/* Container for the whole page */
-div {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Page Container */
+.container {
+  width: 90%;
+  max-width: 1400px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Notes Grid Layout - Now with 5 Notes per Row */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Layout */
+  gap: 25px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* Individual Note Styling */
+.note {
+  background: white;
+  border-left: 6px solid #007bff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-height: 180px;
+}
+
+.note:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Note Content */
+.note-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.note-content {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.note-date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Delete Button */
+.delete-button {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #b02a37;
+}
+
+/* Edit Button */
+.edit-button {
+  background: #28a745;
+  color: white;
+}
+
+.edit-button:hover {
+  background: #218838;
+}
+
+/* Form Styling */
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit Button */
+form input[type="submit"] {
+  background: #007bff;
+  color: white;
+  padding: 14px 20px;
+  font-size: 18px;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* Cancel Button */
+.cancel-button {
+  background: #f44336;
+  color: white;
+  padding: 12px 18px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+}
+
+.cancel-button:hover {
+  background: #d32f2f;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1400px) {
+  .notes-grid {
+    grid-template-columns: repeat(4, minmax(250px, 1fr)); /* 4 per row */
   }
-  
-  /* Styles for the notes section */
-  .notes-section {
-    margin-bottom: 2rem;
+}
+
+@media (max-width: 1100px) {
+  .notes-grid {
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); /* 3 per row */
   }
-  
-  .notes-section h2 {
-    color: #333;
-    font-size: 24px;
+}
+
+@media (max-width: 900px) {
+  .notes-grid {
+    grid-template-columns: repeat(2, minmax(250px, 1fr)); /* 2 per row */
   }
-  
-  /* Styles for individual notes - assuming your Note component has some container element */
-  .note {
-    background-color: #f9f9f9;
-    border-left: 5px solid #007bff;
-    margin: 10px 0;
-    padding: 10px 15px;
-    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .notes-grid {
+    grid-template-columns: repeat(1, minmax(250px, 1fr)); /* 1 per row */
   }
-  
-  /* Styles for the form section */
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: auto;
-  }
-  
-  form h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  form label {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  form input,
-  form textarea {
-    width: 100%;
-    padding: 8px;
-    margin: 8px 0 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  form input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  form input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+}

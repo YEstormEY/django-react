@@ -5,4 +5,7 @@ urlpatterns = [
     path("notes/", views.NoteListCreate.as_view(), name="note-list"),
     path("notes/delete/<int:pk>/", views.NoteDelete.as_view(), name="delete-note"),
     path("notes/update/<int:pk>/", views.NoteUpdate.as_view(), name="update-note"),
+
+    path("users/me/", views.GetUserView.as_view(), name="get-user"),
+    path("users/me/update/", views.UpdateUserView.as_view(), name="update-user"),
 ]
