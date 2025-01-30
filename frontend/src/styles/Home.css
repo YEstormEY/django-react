@@ -215,6 +215,37 @@ form input[type="submit"]:hover {
   background: #d32f2f;
 }
 
+/* Style for the select dropdown */
+form select {
+  width: 100%; /* Full width */
+  padding: 12px; /* Consistent padding with the inputs */
+  margin-top: 5px; /* Match the spacing */
+  border: 1px solid #ccc; /* Same border as inputs */
+  border-radius: 6px; /* Rounded corners to match inputs */
+  font-size: 16px; /* Font size matching the inputs */
+  transition: all 0.2s ease-in-out; /* Smooth hover and focus transitions */
+  appearance: none; /* Remove default browser dropdown arrow for consistency */
+  background: #fff; /* White background */
+  color: #333; /* Default text color */
+}
+
+/* Focus effect */
+form select:focus {
+  border-color: #007bff; /* Blue outline on focus */
+  outline: none; /* No extra outline */
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3); /* Glow effect similar to inputs */
+}
+
+/* Hover effect */
+form select:hover {
+  border-color: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Style the placeholder (disabled and unselected option) */
+form select option[value=""] {
+  color: #6c757d; /* Greyed out placeholder text */
+}
+
 /* Responsive Grid Adjustments */
 @media (max-width: 1400px) {
   .notes-grid {

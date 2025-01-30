@@ -7,6 +7,7 @@ function Home() {
   const [notes, setNotes] = useState([]);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [priority, setPriority] = useState("");
   const [editNote, setEditNote] = useState(null); // Track note being edited
 
   useEffect(() => {
@@ -34,8 +35,10 @@ function Home() {
 
   const createNote = (e) => {
     e.preventDefault();
+
+    console.log(priority);
     api
-      .post("/api/notes/", { content, title })
+      .post("/api/notes/", { content, title, priority })
       .then((res) => {
         if (res.status === 201) alert("Note created successfully!");
         resetForm();
@@ -128,9 +131,23 @@ function Home() {
             onChange={(e) => setContent(e.target.value)}
             placeholder="Write your note here..."
           ></textarea>
-
+          <select
+            value={priority}
+            onChange={(e) => {
+              console.log("Selected Priority:", e.target.value); // Debug here
+              setPriority(e.target.value);
+            }}
+          >
+            <option value="">Select Priority</option>
+            <option value="High">High Priority</option>
+            <option value="Low">Low Priority</option>
+          </select>
+          <p>Priority is set to: {priority}</p>
           <div className="form-buttons">
-            <input type="submit" value={editNote ? "Update Note" : "Add Note"} />
+            <input
+              type="submit"
+              value={editNote ? "Update Note" : "Add Note"}
+            />
             {editNote && (
               <button className="cancel-button" onClick={cancelEditing}>
                 Cancel

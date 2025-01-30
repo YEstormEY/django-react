@@ -9,6 +9,7 @@ function Note({ note, onDelete, onEdit }) {
             <p className="note-title">{note.title}</p>
             <p className="note-content">{note.content}</p>
             <p className="note-date">{formattedDate}</p>
+            <p className="note-priority">Priority: {note.priority}</p>
             <button className="edit-button" onClick={() => onEdit(note)}>
                 Edit
             </button>

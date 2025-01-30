@@ -48,17 +48,10 @@ function Account() {
   const updatePassword = async (e) => {
     e.preventDefault();
 
-    // if (newPassword.length < 8) {
-    //   setError("Password must be at least 8 characters long.");
-    //   return;
-    // }
-
-    const payload = {
-      old_password: oldPassword,
-      new_password: newPassword,
+    if (newPassword.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
     }
-
-    console.log(payload);
 
     try {
       await api.patch("/api/users/me/update/", { old_password: oldPassword, new_password: newPassword, });
@@ -73,7 +66,6 @@ function Account() {
   };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p className="error">{error}</p>;
 
   return (
     <div className="account-container">
