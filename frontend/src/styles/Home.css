@@ -19,31 +19,65 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 20px;
+  text-align: center;
 }
 
-/* Notes Grid Layout - Now with 5 Notes per Row */
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Notes Grid Layout */
+.notes-section {
+  margin-top: 20px;
+}
+
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Layout */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensures fixed-size cards */
   gap: 25px;
   padding: 20px;
   max-width: 1400px;
   margin: auto;
+  justify-content: center; /* Centers grid when few notes exist */
+}
+
+/* Empty Notes Message */
+.empty-message {
+  font-size: 18px;
+  color: #777;
+  margin-top: 20px;
 }
 
 /* Individual Note Styling */
 .note {
+  width: 250px; /* Fixed width */
+  height: 200px; /* Fixed height */
   background: white;
   border-left: 6px solid #007bff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .note:hover {
-  transform: scale(1.07);
+  transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -101,7 +135,11 @@ button:hover {
   background: #218838;
 }
 
-/* Form Styling */
+/* Form Section */
+.form-section {
+  margin-top: 30px;
+}
+
 form {
   background: #fff;
   padding: 25px;
@@ -137,16 +175,24 @@ form textarea:focus {
   box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
+/* Form Buttons */
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 /* Submit Button */
 form input[type="submit"] {
   background: #007bff;
   color: white;
   padding: 14px 20px;
   font-size: 18px;
-  margin-top: 15px;
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.3s ease-in-out;
+  border: none;
 }
 
 form input[type="submit"]:hover {
@@ -158,11 +204,11 @@ form input[type="submit"]:hover {
   background: #f44336;
   color: white;
   padding: 12px 18px;
-  margin-left: 10px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.3s ease-in-out;
+  border: none;
 }
 
 .cancel-button:hover {
@@ -172,24 +218,25 @@ form input[type="submit"]:hover {
 /* Responsive Grid Adjustments */
 @media (max-width: 1400px) {
   .notes-grid {
-    grid-template-columns: repeat(4, minmax(250px, 1fr)); /* 4 per row */
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
   }
 }
 
 @media (max-width: 1100px) {
   .notes-grid {
-    grid-template-columns: repeat(3, minmax(250px, 1fr)); /* 3 per row */
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
   }
 }
 
 @media (max-width: 900px) {
   .notes-grid {
-    grid-template-columns: repeat(2, minmax(250px, 1fr)); /* 2 per row */
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .notes-grid {
-    grid-template-columns: repeat(1, minmax(250px, 1fr)); /* 1 per row */
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+    justify-content: center; /* Ensures single note remains centered */
   }
 }

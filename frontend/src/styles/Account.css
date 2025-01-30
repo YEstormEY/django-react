@@ -12,10 +12,10 @@
 
 /* Header */
 h2 {
-    font-size: 24px;
+    font-size: 26px;
     color: #007bff;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* User Info */
@@ -25,17 +25,19 @@ p {
     margin-bottom: 15px;
 }
 
-/* Edit Mode Container */
-.edit-username {
+/* Edit Sections */
+.edit-section {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 15px;
     margin-top: 20px;
 }
 
 /* Input Fields */
 input {
     width: 100%;
+    max-width: 350px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -46,64 +48,67 @@ input {
 input:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
-/* Buttons (Same as Notes Page) */
+/* Button Styles */
 button {
-    padding: 10px 14px;
+    padding: 12px 16px;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease-in-out, transform 0.2s;
+    font-weight: bold;
 }
 
-button:hover {
-    transform: scale(1.05);
-}
-
-/* Edit Button */
-.edit-button {
-    background: #28a745;
-    color: white;
-}
-
-.edit-button:hover {
-    background: #218838;
-}
-
-/* Cancel Button */
-.cancel-btn {
-    background: #dc3545;
-    color: white;
-}
-
-.cancel-btn:hover {
-    background: #b02a37;
-}
-
-/* Submit Button */
-.submit-btn {
+/* Primary Button (Submit/Confirm) */
+.primary-btn {
     background: #007bff;
     color: white;
 }
 
-.submit-btn:hover {
+.primary-btn:hover {
     background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Secondary Button (Cancel) */
+.secondary-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #b02a37;
+    transform: scale(1.05);
+}
+
+/* Edit Buttons */
+.edit-btn {
+    background: #28a745;
+    color: white;
+    margin-top: 10px;
+}
+
+.edit-btn:hover {
+    background: #218838;
+    transform: scale(1.05);
 }
 
 /* Success & Error Messages */
 .success {
-    color: green;
+    color: #28a745;
     font-size: 16px;
-    margin-top: 10px;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .error {
-    color: red;
+    color: #dc3545;
     font-size: 16px;
-    margin-top: 10px;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 /* Responsive Design */
@@ -111,6 +116,10 @@ button:hover {
     .account-container {
         width: 90%;
         padding: 20px;
+    }
+
+    input {
+        width: 100%;
     }
 
     button {
